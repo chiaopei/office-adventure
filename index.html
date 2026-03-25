@@ -15,6 +15,7 @@
    RESET & BASE
    ============================================================ */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+.hidden { display: none !important; }
 
 :root {
   --bg: #f5f0e8;
@@ -28,6 +29,12 @@
   --text-muted: #b0a898;
   --font-serif: 'Noto Serif TC', Georgia, serif;
   --font-sans: 'Noto Sans TC', 'Helvetica Neue', sans-serif;
+  --fs-xs: 11px;
+  --fs-sm: 13px;
+  --fs-md: 15px;
+  --fs-lg: 18px;
+  --fs-xl: 24px;
+  --fs-2xl: 32px;
 }
 
 html, body {
@@ -36,7 +43,7 @@ html, body {
   background: var(--bg);
   color: var(--text);
   font-family: var(--font-sans);
-  font-size: 16px;
+  font-size: var(--fs-md);
   line-height: 1.6;
   -webkit-tap-highlight-color: transparent;
   -webkit-font-smoothing: antialiased;
@@ -67,7 +74,7 @@ html, body {
 
 /* Progress label */
 #progress-label {
-  font-size: 12px;
+  font-size: var(--fs-sm);
   font-weight: 500;
   color: var(--text-dim);
   white-space: nowrap;
@@ -115,7 +122,7 @@ html, body {
 
 .bottom-btn {
   font-family: var(--font-sans);
-  font-size: 14px;
+  font-size: var(--fs-md);
   font-weight: 600;
   color: var(--accent);
   background: var(--bg-card);
@@ -136,7 +143,7 @@ html, body {
 }
 
 #room-counter {
-  font-size: 12px;
+  font-size: var(--fs-sm);
   color: var(--text-dim);
   white-space: nowrap;
 }
@@ -173,7 +180,7 @@ html, body {
 
 .welcome-title {
   font-family: var(--font-serif);
-  font-size: 32px;
+  font-size: var(--fs-2xl);
   font-weight: 700;
   color: var(--accent);
   margin-bottom: 8px;
@@ -182,7 +189,7 @@ html, body {
 
 .welcome-subtitle {
   font-family: var(--font-sans);
-  font-size: 15px;
+  font-size: var(--fs-md);
   color: var(--text-dim);
   margin-bottom: 24px;
   position: relative; z-index: 1;
@@ -190,7 +197,7 @@ html, body {
 
 .welcome-intro {
   font-family: var(--font-serif);
-  font-size: 15px;
+  font-size: var(--fs-md);
   color: var(--text);
   line-height: 1.8;
   max-width: 360px;
@@ -211,7 +218,7 @@ html, body {
 
 .welcome-quest-title {
   font-family: var(--font-sans);
-  font-size: 12px;
+  font-size: var(--fs-sm);
   font-weight: 600;
   color: var(--accent);
   letter-spacing: 2px;
@@ -232,7 +239,7 @@ html, body {
   width: 48px; height: 48px;
   border-radius: 10px;
   font-family: var(--font-serif);
-  font-size: 28px;
+  font-size: var(--fs-xl);
   font-weight: 700;
   color: var(--accent);
   background: rgba(224,120,80,0.08);
@@ -241,14 +248,14 @@ html, body {
 
 .welcome-quest-desc {
   font-family: var(--font-sans);
-  font-size: 13px;
+  font-size: var(--fs-sm);
   color: var(--text-dim);
   line-height: 1.6;
 }
 
 .welcome-btn {
   font-family: var(--font-sans);
-  font-size: 17px;
+  font-size: var(--fs-lg);
   font-weight: 700;
   color: #ffffff;
   background: linear-gradient(135deg, var(--accent), var(--accent-bright));
@@ -268,7 +275,7 @@ html, body {
   background: var(--bg-card);
   color: var(--accent);
   border: 1px solid var(--border);
-  font-size: 14px;
+  font-size: var(--fs-md);
   padding: 10px 28px;
 }
 
@@ -277,7 +284,7 @@ html, body {
    ============================================================ */
 .room-title {
   font-family: var(--font-serif);
-  font-size: 26px;
+  font-size: var(--fs-xl);
   font-weight: 700;
   color: var(--text);
   margin-bottom: 4px;
@@ -286,14 +293,14 @@ html, body {
 }
 
 .room-author {
-  font-size: 13px;
+  font-size: var(--fs-sm);
   color: var(--text-dim);
   margin-bottom: 20px;
 }
 
 .room-description {
   font-family: var(--font-serif);
-  font-size: 15px;
+  font-size: var(--fs-md);
   line-height: 1.9;
   color: var(--text);
   margin-bottom: 28px;
@@ -309,7 +316,7 @@ html, body {
 /* --- Section Heading --- */
 .hint-banner {
   font-family: var(--font-sans);
-  font-size: 13px;
+  font-size: var(--fs-sm);
   color: var(--accent);
   background: rgba(224,120,80,0.08);
   border: 1px solid rgba(224,120,80,0.25);
@@ -321,7 +328,7 @@ html, body {
 
 .section-heading {
   font-family: var(--font-sans);
-  font-size: 14px;
+  font-size: var(--fs-md);
   font-weight: 600;
   color: var(--accent);
   margin-bottom: 12px;
@@ -345,6 +352,7 @@ html, body {
 .interaction-card:active:not(.locked):not(.chosen) { background: #f9f5ef; }
 .interaction-card.chosen { border-color: var(--accent-dim); background: #fdf6f2; }
 .interaction-card.chosen.previous { border-color: var(--accent-dim); background: #fdf6f2; opacity: 0.75; }
+.interaction-card.locked { opacity: 0.35; pointer-events: none; border-style: dashed; }
 .interaction-card.locked {
   opacity: 0.35;
   pointer-events: none;
@@ -371,14 +379,14 @@ html, body {
 
 .interaction-text {
   font-family: var(--font-sans);
-  font-size: 15px;
+  font-size: var(--fs-md);
   font-weight: 500;
   color: var(--text);
   flex: 1;
 }
 
 .interaction-badge {
-  font-size: 11px;
+  font-size: var(--fs-xs);
   color: var(--accent-dim);
   margin-left: 8px;
   white-space: nowrap;
@@ -386,7 +394,7 @@ html, body {
 
 .interaction-result {
   font-family: var(--font-serif);
-  font-size: 14px;
+  font-size: var(--fs-md);
   line-height: 1.8;
   color: var(--text);
   margin-top: 12px;
@@ -417,7 +425,7 @@ html, body {
 
 .exit-btn {
   font-family: var(--font-sans);
-  font-size: 14px;
+  font-size: var(--fs-md);
   font-weight: 600;
   color: var(--accent);
   background: var(--bg-card);
@@ -461,7 +469,7 @@ html, body {
 
 #transition-text {
   font-family: var(--font-serif);
-  font-size: 18px;
+  font-size: var(--fs-lg);
   color: var(--text-dim);
   font-style: italic;
 }
@@ -487,7 +495,7 @@ html, body {
 
 .journal-tab {
   font-family: var(--font-sans);
-  font-size: 14px;
+  font-size: var(--fs-md);
   font-weight: 600;
   color: var(--text-dim);
   background: none; border: none;
@@ -506,7 +514,7 @@ html, body {
 #journal-close {
   margin-left: auto;
   font-family: var(--font-sans);
-  font-size: 14px; font-weight: 600;
+  font-size: var(--fs-md); font-weight: 600;
   color: var(--text-dim);
   background: none; border: none;
   padding: 8px 12px;
@@ -524,7 +532,7 @@ html, body {
 /* Story tab */
 .story-title {
   font-family: var(--font-serif);
-  font-size: 22px;
+  font-size: var(--fs-xl);
   font-weight: 700;
   color: var(--accent);
   margin-bottom: 20px;
@@ -533,7 +541,7 @@ html, body {
 
 .story-paragraph {
   font-family: var(--font-serif);
-  font-size: 15px;
+  font-size: var(--fs-md);
   line-height: 2;
   color: var(--text);
   margin-bottom: 16px;
@@ -542,7 +550,7 @@ html, body {
 
 .story-transition {
   font-family: var(--font-serif);
-  font-size: 14px;
+  font-size: var(--fs-md);
   color: var(--text-muted);
   text-align: center;
   margin: 8px 0;
@@ -551,7 +559,7 @@ html, body {
 
 .story-personality {
   font-family: var(--font-serif);
-  font-size: 15px;
+  font-size: var(--fs-md);
   line-height: 2;
   color: var(--accent);
   margin-top: 24px;
@@ -564,7 +572,7 @@ html, body {
 
 .story-copy-btn {
   font-family: var(--font-sans);
-  font-size: 14px;
+  font-size: var(--fs-md);
   font-weight: 600;
   color: var(--accent);
   background: var(--bg-card);
@@ -583,7 +591,7 @@ html, body {
 
 .story-empty {
   font-family: var(--font-serif);
-  font-size: 15px;
+  font-size: var(--fs-md);
   color: var(--text-muted);
   text-align: center;
   padding: 40px 0;
@@ -592,7 +600,7 @@ html, body {
 /* Adventure log tab */
 .log-summary {
   font-family: var(--font-sans);
-  font-size: 13px;
+  font-size: var(--fs-sm);
   color: var(--text-dim);
   padding: 12px 16px;
   background: var(--bg-card);
@@ -632,14 +640,14 @@ html, body {
 
 .log-entry-time {
   font-family: var(--font-sans);
-  font-size: 11px;
+  font-size: var(--fs-xs);
   color: var(--text-muted);
   margin-bottom: 2px;
 }
 
 .log-entry-room {
   font-family: var(--font-serif);
-  font-size: 15px;
+  font-size: var(--fs-md);
   font-weight: 600;
   color: var(--accent);
   margin-bottom: 2px;
@@ -647,14 +655,14 @@ html, body {
 
 .log-entry-action {
   font-family: var(--font-sans);
-  font-size: 14px;
+  font-size: var(--fs-md);
   color: var(--text);
   margin-bottom: 2px;
 }
 
 .log-entry-result {
   font-family: var(--font-serif);
-  font-size: 13px;
+  font-size: var(--fs-sm);
   color: var(--text-dim);
   font-style: italic;
   line-height: 1.6;
@@ -677,7 +685,7 @@ html, body {
 
 .profile-type-name {
   font-family: var(--font-serif);
-  font-size: 20px;
+  font-size: var(--fs-xl);
   font-weight: 700;
   color: var(--accent);
   margin-bottom: 8px;
@@ -685,7 +693,7 @@ html, body {
 
 .profile-type-desc {
   font-family: var(--font-serif);
-  font-size: 14px;
+  font-size: var(--fs-md);
   color: var(--text);
   line-height: 1.8;
   max-width: 320px;
@@ -709,21 +717,21 @@ html, body {
 
 .profile-stat-value {
   font-family: var(--font-sans);
-  font-size: 20px;
+  font-size: var(--fs-xl);
   font-weight: 700;
   color: var(--accent);
 }
 
 .profile-stat-label {
   font-family: var(--font-sans);
-  font-size: 12px;
+  font-size: var(--fs-sm);
   color: var(--text-dim);
   margin-top: 2px;
 }
 
 .profile-empty {
   font-family: var(--font-serif);
-  font-size: 15px;
+  font-size: var(--fs-md);
   color: var(--text-muted);
   text-align: center;
   padding: 40px 0;
@@ -751,13 +759,13 @@ html, body {
 
 #map-title {
   font-family: var(--font-sans);
-  font-size: 16px; font-weight: 600;
+  font-size: var(--fs-lg); font-weight: 600;
   color: var(--accent);
 }
 
 #map-close {
   font-family: var(--font-sans);
-  font-size: 14px; font-weight: 600;
+  font-size: var(--fs-md); font-weight: 600;
   color: var(--text-dim);
   background: none; border: none;
   padding: 8px 12px;
@@ -781,7 +789,7 @@ html, body {
   border-radius: 8px;
   padding: 6px 12px;
   font-family: var(--font-sans);
-  font-size: 13px;
+  font-size: var(--fs-sm);
   font-weight: 600;
   color: var(--text);
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
@@ -811,7 +819,7 @@ html, body {
 
 .loading-text {
   font-family: var(--font-serif);
-  font-size: 16px;
+  font-size: var(--fs-md);
   color: var(--text-dim);
   animation: loadPulse 1.5s ease-in-out infinite;
 }
@@ -833,7 +841,7 @@ html, body {
 
 .char-label {
   font-family: var(--font-sans);
-  font-size: 11px;
+  font-size: var(--fs-xs);
   color: var(--text-muted);
   margin-right: 4px;
 }
@@ -845,7 +853,7 @@ html, body {
   width: 32px; height: 32px;
   border-radius: 6px;
   font-family: var(--font-serif);
-  font-size: 16px;
+  font-size: var(--fs-md);
   font-weight: 700;
   margin: 0 3px;
 }
@@ -888,7 +896,7 @@ html, body {
 
 #char-discovery-msg {
   font-family: var(--font-serif);
-  font-size: 20px;
+  font-size: var(--fs-xl);
   color: var(--text);
   margin-top: 16px;
   opacity: 0;
@@ -920,7 +928,7 @@ html, body {
 
 .completion-title {
   font-family: var(--font-serif);
-  font-size: 48px;
+  font-size: 40px;
   font-weight: 700;
   color: var(--accent);
   margin-bottom: 8px;
@@ -928,7 +936,7 @@ html, body {
 
 .completion-subtitle {
   font-family: var(--font-serif);
-  font-size: 24px;
+  font-size: var(--fs-xl);
   color: var(--text);
   margin-bottom: 24px;
 }
@@ -945,13 +953,13 @@ html, body {
 
 .completion-input-label {
   font-family: var(--font-sans);
-  font-size: 15px;
+  font-size: var(--fs-md);
   color: var(--text-dim);
 }
 
 .completion-input {
   font-family: var(--font-sans);
-  font-size: 18px;
+  font-size: var(--fs-lg);
   padding: 10px 16px;
   border: 2px solid var(--border);
   border-radius: 8px;
@@ -968,7 +976,7 @@ html, body {
 
 .completion-generate-btn {
   font-family: var(--font-sans);
-  font-size: 16px;
+  font-size: var(--fs-md);
   font-weight: 700;
   color: #fff;
   background: linear-gradient(135deg, var(--accent), var(--accent-bright));
@@ -1009,7 +1017,7 @@ html, body {
 
 .completion-btn {
   font-family: var(--font-sans);
-  font-size: 14px;
+  font-size: var(--fs-md);
   font-weight: 600;
   color: var(--accent);
   background: var(--bg-card);
@@ -1046,7 +1054,7 @@ html, body {
 
 .verify-title {
   font-family: var(--font-serif);
-  font-size: 36px;
+  font-size: var(--fs-2xl);
   font-weight: 700;
   color: var(--accent);
   margin-bottom: 8px;
@@ -1054,14 +1062,14 @@ html, body {
 
 .verify-name {
   font-family: var(--font-serif);
-  font-size: 28px;
+  font-size: var(--fs-2xl);
   color: var(--text);
   margin-bottom: 12px;
 }
 
 .verify-info {
   font-family: var(--font-sans);
-  font-size: 15px;
+  font-size: var(--fs-md);
   color: var(--text-dim);
   line-height: 1.8;
   margin-bottom: 8px;
@@ -1069,7 +1077,7 @@ html, body {
 
 .verify-error {
   font-family: var(--font-serif);
-  font-size: 18px;
+  font-size: var(--fs-lg);
   color: var(--text-dim);
 }
 
@@ -1091,9 +1099,21 @@ html, body {
   height: 100vh;
 }
 
+.admin-back-btn {
+  font-family: var(--font-sans);
+  font-size: var(--fs-md);
+  color: var(--accent);
+  background: transparent;
+  border: 1px solid var(--accent);
+  border-radius: 8px;
+  padding: 8px 20px;
+  cursor: pointer;
+  margin-bottom: 16px;
+}
+
 .admin-title {
   font-family: var(--font-sans);
-  font-size: 22px;
+  font-size: var(--fs-xl);
   font-weight: 700;
   color: var(--accent);
   margin-bottom: 8px;
@@ -1101,7 +1121,7 @@ html, body {
 
 .admin-stats {
   font-family: var(--font-sans);
-  font-size: 14px;
+  font-size: var(--fs-md);
   color: #7a6e60;
   margin-bottom: 20px;
 }
@@ -1117,12 +1137,18 @@ html, body {
   padding: 8px;
   min-height: 70px;
   font-family: var(--font-sans);
-  font-size: 11px;
+  font-size: var(--fs-xs);
 }
 
 .admin-cell.occupied {
   background: #ffffff;
   border: 1px solid var(--accent-dim);
+}
+
+.admin-cell.occupied.current {
+  background: #fef5ee;
+  border: 2px solid var(--accent);
+  box-shadow: 0 0 8px rgba(224,120,80,0.3);
 }
 
 .admin-cell.empty {
@@ -1132,7 +1158,7 @@ html, body {
 
 .admin-cell-title {
   font-weight: 700;
-  font-size: 13px;
+  font-size: var(--fs-sm);
   color: #3a3028;
   margin-bottom: 2px;
   white-space: nowrap;
@@ -1142,31 +1168,31 @@ html, body {
 
 .admin-cell-file {
   color: #7a6e60;
-  font-size: 10px;
+  font-size: var(--fs-xs);
   margin-bottom: 4px;
 }
 
 .admin-cell-dirs {
   color: var(--accent);
-  font-size: 10px;
+  font-size: var(--fs-xs);
   font-weight: 600;
 }
 
 .admin-cell-info {
   color: #7a6e60;
-  font-size: 10px;
+  font-size: var(--fs-xs);
   margin-top: 2px;
 }
 
 .admin-cell-empty-label {
   color: #b0a898;
-  font-size: 10px;
+  font-size: var(--fs-xs);
   text-align: center;
 }
 
 .admin-subtitle {
   font-family: var(--font-sans);
-  font-size: 18px;
+  font-size: var(--fs-lg);
   font-weight: 600;
   color: var(--accent);
   margin-bottom: 12px;
@@ -1174,7 +1200,7 @@ html, body {
 
 .admin-conn-list {
   font-family: var(--font-sans);
-  font-size: 13px;
+  font-size: var(--fs-sm);
   color: #7a6e60;
 }
 
@@ -1185,6 +1211,91 @@ html, body {
   padding: 8px 12px;
   margin-bottom: 6px;
   line-height: 1.6;
+}
+
+/* ============================================================
+   COLLECTIBLE TOAST
+   ============================================================ */
+.collectible-toast {
+  position: fixed;
+  top: 60px; left: 50%; transform: translateX(-50%);
+  background: #fff;
+  border: 1px solid var(--accent);
+  border-radius: 10px;
+  padding: 8px 20px;
+  text-align: center;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+  z-index: 150;
+  transition: opacity 0.3s, transform 0.3s;
+}
+.collectible-toast.hidden { opacity: 0; transform: translateX(-50%) translateY(-20px); pointer-events: none; }
+.collectible-toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+.collectible-toast-label { font-size: var(--fs-xs); color: var(--text-muted); }
+.collectible-toast-name { font-size: var(--fs-md); font-weight: 700; color: var(--accent); }
+
+/* ============================================================
+   COLLECTIBLES TAB
+   ============================================================ */
+.collectibles-count {
+  font-family: var(--font-sans);
+  font-size: var(--fs-sm);
+  color: var(--text-dim);
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.collectibles-empty {
+  font-family: var(--font-serif);
+  font-size: var(--fs-md);
+  color: var(--text-muted);
+  text-align: center;
+  padding: 40px 0;
+}
+
+.collectibles-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+@media (min-width: 540px) {
+  .collectibles-grid { grid-template-columns: 1fr 1fr 1fr; }
+}
+
+.collectible-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px 12px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.collectible-card-name {
+  font-family: var(--font-serif);
+  font-size: var(--fs-md);
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 4px;
+}
+
+.collectible-card-room {
+  font-family: var(--font-sans);
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+}
+
+/* Collectible badge on interaction cards */
+.interaction-collectible-badge {
+  font-family: var(--font-sans);
+  font-size: var(--fs-xs);
+  color: var(--accent);
+  background: rgba(224,120,80,0.08);
+  border: 1px solid rgba(224,120,80,0.2);
+  border-radius: 6px;
+  padding: 2px 8px;
+  margin-top: 8px;
+  display: inline-block;
 }
 </style>
 </head>
@@ -1218,7 +1329,8 @@ html, body {
     </div>
     <button class="welcome-btn" id="btn-start">開始探險</button>
     <button class="welcome-btn secondary hidden" id="btn-continue"></button>
-    <button class="welcome-btn hidden" id="btn-welcome-reset" style="background:transparent;border:1px solid #b0a898;color:#7a6e60;font-size:13px;margin-top:8px">重置所有進度</button>
+    <button class="welcome-btn hidden" id="btn-welcome-reset" style="background:transparent;border:1px solid #b0a898;color:#7a6e60;font-size:var(--fs-sm);margin-top:8px">重置所有進度</button>
+    <button class="welcome-btn" id="btn-admin" style="background:transparent;border:none;color:var(--text-muted);font-size:var(--fs-xs);margin-top:16px;text-decoration:underline;padding:4px">偷看地圖（作弊模式）</button>
   </div>
 
   <!-- Game -->
@@ -1234,7 +1346,7 @@ html, body {
       <button class="bottom-btn" id="btn-journal">故事書</button>
       <span id="progress-label">已探索 0/0</span>
       <button class="bottom-btn" id="btn-map">地圖</button>
-      <button class="bottom-btn" id="btn-reset" style="color:#d9534f;font-size:11px">重置</button>
+      <button class="bottom-btn" id="btn-home" style="font-size:var(--fs-xs)">首頁</button>
     </div>
   </div>
 
@@ -1247,6 +1359,7 @@ html, body {
       <button class="journal-tab active" id="tab-story" data-tab="story">我的故事</button>
       <button class="journal-tab" id="tab-log" data-tab="log">冒險日誌</button>
       <button class="journal-tab" id="tab-profile" data-tab="profile">探險者側寫</button>
+      <button class="journal-tab" id="tab-collectibles" data-tab="collectibles">收藏品</button>
       <button id="journal-close">關閉</button>
     </div>
     <div id="journal-content"></div>
@@ -1262,6 +1375,12 @@ html, body {
       <canvas id="map-canvas"></canvas>
       <div id="map-tooltip" class="map-tooltip hidden"></div>
     </div>
+  </div>
+
+  <!-- Collectible toast -->
+  <div id="collectible-toast" class="collectible-toast hidden">
+    <div class="collectible-toast-label">獲得收藏品</div>
+    <div id="collectible-toast-name" class="collectible-toast-name"></div>
   </div>
 
   <!-- Char discovery overlay -->
@@ -1334,7 +1453,16 @@ function parseRoom(md, filename) {
       descLines.push(trimmed);
     } else if (section === 'actions') {
       var m = trimmed.match(/^(.+?)[：:]\s*(.+)$/);
-      if (m) interactions.push({ label: m[1].trim(), result: m[2].trim() });
+      if (m) {
+        var rawResult = m[2].trim();
+        var collectible = null;
+        var cm = rawResult.match(/\[收藏[：:](.+?)\]\s*$/);
+        if (cm) {
+          collectible = cm[1].trim();
+          rawResult = rawResult.replace(/\[收藏[：:](.+?)\]\s*$/, '').trim();
+        }
+        interactions.push({ label: m[1].trim(), result: rawResult, collectible: collectible });
+      }
     } else if (section === 'exits') {
       var m2 = trimmed.match(/^(.+?)[：:]\s*(.+)$/);
       if (m2) exits.push({ direction: m2[1].trim(), description: m2[2].trim() });
@@ -1430,7 +1558,8 @@ var G = {
   log: [],             // [{type, room, action, result, direction, time, traitIdx}]
   traits: { action: 0, observer: 0, adventurer: 0, warmheart: 0 },
   hiddenChars: {},     // filename -> { interactionIdx, char }
-  collectedChars: { '\u5747': false, '\u4E00': false, '\u631C': false, '\u958B': false, '\u6E90': false },
+  collectedChars: { '\u5747': false, '\u4E00': false, '\u633A': false, '\u958B': false, '\u6E90': false },
+  collectibles: [],    // [{name, room, roomTitle}]
   playerName: ''       // set on completion
 };
 
@@ -1442,7 +1571,8 @@ function save() {
       cur: G.cur, visited: G.visited, choices: G.choices,
       choiceResults: G.choiceResults, positions: G.positions,
       log: G.log, traits: G.traits,
-      collectedChars: G.collectedChars, playerName: G.playerName
+      collectedChars: G.collectedChars, collectibles: G.collectibles,
+      playerName: G.playerName
     }));
   } catch (e) {}
 }
@@ -1534,136 +1664,37 @@ function buildConnections() {
   rows = compactRows;
   cols = compactCols;
 
-  // --- Step 3: Build spanning tree (randomized DFS) ---
-  // Use a seeded RNG based on the set of filenames sorted, so the maze
-  // structure is stable as long as existing rooms don't change.
-  var sortedNames = rooms.map(function(r){return r.filename;}).sort().join('|');
-  var mazeRng = mulberry32(hashStr('maze-' + sortedNames));
+  // --- Step 3: Connect all rooms via ray-cast ---
+  // Simple rule: in each direction (N/S/E/W), scan along the row/column
+  // skipping empty cells, and connect to the nearest room found.
+  // No maze walls, no random blocking. If there's a room in that direction, you can go there.
+  // This is fully deterministic and stable — adding a new room only affects
+  // connections in its row and column.
 
   var conns = {};
   for (var i = 0; i < n; i++) conns[rooms[i].filename] = {};
 
-  // Ray-cast neighbors: scan along each direction, skip empty cells,
-  // find the nearest room. Like a rook on a chess board.
-  function gridNeighbors(fn) {
-    var p = G.positions[fn], nb = [];
-    var scans = [
-      { dc: 0, dr: -1, dir: '\u5F80\u5317', opp: '\u5F80\u5357' },
-      { dc: 0, dr:  1, dir: '\u5F80\u5357', opp: '\u5F80\u5317' },
-      { dc: 1, dr:  0, dir: '\u5F80\u6771', opp: '\u5F80\u897F' },
-      { dc:-1, dr:  0, dir: '\u5F80\u897F', opp: '\u5F80\u6771' }
-    ];
+  var scans = [
+    { dc: 0, dr: -1, dir: '\u5F80\u5317', opp: '\u5F80\u5357' },
+    { dc: 0, dr:  1, dir: '\u5F80\u5357', opp: '\u5F80\u5317' },
+    { dc: 1, dr:  0, dir: '\u5F80\u6771', opp: '\u5F80\u897F' },
+    { dc:-1, dr:  0, dir: '\u5F80\u897F', opp: '\u5F80\u6771' }
+  ];
+
+  for (var i = 0; i < n; i++) {
+    var fn = rooms[i].filename;
+    var p = G.positions[fn];
     for (var s = 0; s < scans.length; s++) {
       var sc = scans[s];
       var r = p.y + sc.dr, c = p.x + sc.dc;
       while (r >= 0 && r < rows && c >= 0 && c < cols) {
         if (grid[r][c]) {
-          nb.push({ fn: grid[r][c], dir: sc.dir, opp: sc.opp });
+          conns[fn][sc.dir] = grid[r][c];
           break;
         }
         r += sc.dr;
         c += sc.dc;
       }
-    }
-    return nb;
-  }
-
-  // Find a starting room (first occupied cell in grid)
-  var startFn = null;
-  for (var r = 0; r < rows && !startFn; r++) {
-    for (var c = 0; c < cols && !startFn; c++) {
-      if (grid[r][c]) startFn = grid[r][c];
-    }
-  }
-
-  var treeVisited = {};
-  var stack = [startFn];
-  treeVisited[startFn] = true;
-
-  while (stack.length) {
-    var cur = stack[stack.length - 1];
-    var nbs = gridNeighbors(cur);
-    var unvis = [];
-    for (var i = 0; i < nbs.length; i++) {
-      if (!treeVisited[nbs[i].fn]) unvis.push(nbs[i]);
-    }
-    if (!unvis.length) { stack.pop(); continue; }
-    var pick = unvis[Math.floor(mazeRng() * unvis.length)];
-    conns[cur][pick.dir] = pick.fn;
-    conns[pick.fn][pick.opp] = cur;
-    treeVisited[pick.fn] = true;
-    stack.push(pick.fn);
-  }
-
-  // --- Step 4: Add extra passages ---
-  // Use per-cell deterministic decision (hash of both filenames) so adding
-  // a new room only affects passages involving that new room.
-  for (var r = 0; r < rows; r++) {
-    for (var c = 0; c < cols; c++) {
-      var fn = grid[r][c];
-      if (!fn) continue;
-      var pairs = [
-        { nr: r - 1, nc: c, dir: '\u5F80\u5317', opp: '\u5F80\u5357' },
-        { nr: r + 1, nc: c, dir: '\u5F80\u5357', opp: '\u5F80\u5317' },
-        { nr: r, nc: c + 1, dir: '\u5F80\u6771', opp: '\u5F80\u897F' },
-        { nr: r, nc: c - 1, dir: '\u5F80\u897F', opp: '\u5F80\u6771' }
-      ];
-      for (var p = 0; p < pairs.length; p++) {
-        var pp = pairs[p];
-        if (pp.nr < 0 || pp.nr >= rows || pp.nc < 0 || pp.nc >= cols) continue;
-        var nb = grid[pp.nr][pp.nc];
-        if (!nb || conns[fn][pp.dir]) continue;
-        // Deterministic per-pair: hash both filenames so result is stable
-        var pairKey = fn < nb ? fn + '|' + nb : nb + '|' + fn;
-        var pairRng = mulberry32(hashStr('passage-' + pairKey));
-        if (pairRng() < 0.35) {
-          conns[fn][pp.dir] = nb;
-          conns[nb][pp.opp] = fn;
-        }
-      }
-    }
-  }
-
-  // --- Step 5: Safety net for fully isolated rooms ---
-  // Ray-cast handles most cases, but a room alone in its row AND column
-  // would still be unreachable. BFS to find them, connect to nearest.
-  var reachable = {};
-  var startFn2 = null;
-  for (var r = 0; r < rows && !startFn2; r++) {
-    for (var c = 0; c < cols && !startFn2; c++) {
-      if (grid[r][c]) startFn2 = grid[r][c];
-    }
-  }
-  if (startFn2) {
-    var bfsQ = [startFn2];
-    reachable[startFn2] = true;
-    while (bfsQ.length) {
-      var cur = bfsQ.shift();
-      for (var d in conns[cur]) {
-        if (!reachable[conns[cur][d]]) { reachable[conns[cur][d]] = true; bfsQ.push(conns[cur][d]); }
-      }
-    }
-  }
-  for (var i = 0; i < n; i++) {
-    var fn = rooms[i].filename;
-    if (reachable[fn]) continue;
-    var myPos = G.positions[fn];
-    var bestDist = Infinity, bestFn = null;
-    for (var reached in reachable) {
-      var rp = G.positions[reached];
-      var dist = Math.abs(rp.x - myPos.x) + Math.abs(rp.y - myPos.y);
-      if (dist < bestDist) { bestDist = dist; bestFn = reached; }
-    }
-    if (bestFn) {
-      var rp = G.positions[bestFn];
-      var dx = rp.x - myPos.x, dy = rp.y - myPos.y;
-      var dir = Math.abs(dx) >= Math.abs(dy)
-        ? (dx > 0 ? '\u5F80\u6771' : '\u5F80\u897F')
-        : (dy > 0 ? '\u5F80\u5357' : '\u5F80\u5317');
-      var opp = DIR_INFO[dir].opp;
-      conns[fn][dir] = bestFn;
-      conns[bestFn][opp] = fn;
-      reachable[fn] = true;
     }
   }
 
@@ -2112,7 +2143,7 @@ function updateProgress() {
 /* ----------------------------------------------------------------
    CHAR COLLECTION UI
    ---------------------------------------------------------------- */
-var COLLECT_CHARS = ['\u5747', '\u4E00', '\u631C', '\u958B', '\u6E90'];
+var COLLECT_CHARS = ['\u5747', '\u4E00', '\u633A', '\u958B', '\u6E90'];
 
 function updateCharBoxes() {
   var container = $('char-collection');
@@ -2143,7 +2174,7 @@ function updateCharBoxes() {
 function assignHiddenChars() {
   // Place 5 characters in 5 rooms. Finding = entering the room (no interaction needed).
   var rng = mulberry32(hashStr('collect-chars-v2'));
-  var chars = ['\u5747', '\u4E00', '\u631C', '\u958B', '\u6E90'];
+  var chars = ['\u5747', '\u4E00', '\u633A', '\u958B', '\u6E90'];
   var charCount = chars.length;
   var roomCount = G.rooms.length;
   if (roomCount < charCount) return;
@@ -2229,6 +2260,21 @@ function showCharDiscovery(ch) {
 }
 
 /* ----------------------------------------------------------------
+   COLLECTIBLE TOAST NOTIFICATION
+   ---------------------------------------------------------------- */
+function showCollectibleToast(itemName) {
+  var toast = $('collectible-toast');
+  $('collectible-toast-name').textContent = itemName;
+  toast.classList.remove('hidden');
+  toast.classList.add('show');
+
+  setTimeout(function () {
+    toast.classList.remove('show');
+    toast.classList.add('hidden');
+  }, 1500);
+}
+
+/* ----------------------------------------------------------------
    CHECK HIDDEN CHAR ON INTERACTION
    ---------------------------------------------------------------- */
 function checkRoomChar(roomFilename) {
@@ -2250,8 +2296,8 @@ function showCompletionScreen() {
   clearEl(overlay);
   overlay.classList.add('active');
 
-  overlay.appendChild(el('div', 'completion-title', '\u5747\u4E00\u631C\u958B\u6E90'));
-  overlay.appendChild(el('div', 'completion-subtitle', '\u606D\u559C\u4F60\u96C6\u9F4A\u4E86\u300C\u5747\u4E00\u631C\u958B\u6E90\u300D\uFF01'));
+  overlay.appendChild(el('div', 'completion-title', '\u5747\u4E00\u633A\u958B\u6E90'));
+  overlay.appendChild(el('div', 'completion-subtitle', '\u606D\u559C\u4F60\u96C6\u9F4A\u4E86\u300C\u5747\u4E00\u633A\u958B\u6E90\u300D\uFF01'));
 
   var inputGroup = el('div', 'completion-input-group');
   inputGroup.appendChild(el('div', 'completion-input-label', '\u8ACB\u8F38\u5165\u4F60\u7684\u540D\u5B57'));
@@ -2264,7 +2310,7 @@ function showCompletionScreen() {
   if (G.playerName) nameInput.value = G.playerName;
   inputGroup.appendChild(nameInput);
 
-  var genBtn = el('button', 'completion-generate-btn', '\u751F\u6210\u5300\u984D');
+  var genBtn = el('button', 'completion-generate-btn', '\u751F\u6210\u533E\u984D');
   inputGroup.appendChild(genBtn);
   overlay.appendChild(inputGroup);
 
@@ -2296,8 +2342,12 @@ function showCompletionScreen() {
 
 function generatePlaque(canvas, name) {
   var w = 600, h = 440;
-  canvas.width = w; canvas.height = h;
+  var dpr = window.devicePixelRatio || 1;
+  if (dpr < 2) dpr = 2; // minimum 2x for sharp output
+  canvas.width = w * dpr; canvas.height = h * dpr;
+  canvas.style.width = w + 'px'; canvas.style.height = h + 'px';
   var ctx = canvas.getContext('2d');
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
   ctx.clearRect(0, 0, w, h);
 
   // -- Background with subtle texture --
@@ -2347,7 +2397,7 @@ function generatePlaque(canvas, name) {
   // -- Main title: 均一挺開源 --
   ctx.fillStyle = '#3a3028';
   ctx.font = 'bold 52px "Noto Serif TC", Georgia, serif';
-  ctx.fillText('\u5747\u4E00\u631C\u958B\u6E90', w / 2, 118);
+  ctx.fillText('\u5747\u4E00\u633A\u958B\u6E90', w / 2, 118);
 
   // -- Decorative divider --
   ctx.strokeStyle = '#c4b5a0';
@@ -2375,8 +2425,8 @@ function generatePlaque(canvas, name) {
   // -- Achievement text --
   ctx.fillStyle = '#5a5045';
   ctx.font = '15px "Noto Serif TC", Georgia, serif';
-  ctx.fillText('\u5DF2\u6210\u529F\u96C6\u9F4A\u300C\u5747\u300D\u300C\u4E00\u300D\u300C\u631C\u300D\u300C\u958B\u300D\u300C\u6E90\u300D\u4E94\u5B57', w / 2, 272);
-  ctx.fillText('\u5747\u4E00\u631C\u958B\u6E90\uFF01', w / 2, 296);
+  ctx.fillText('\u5DF2\u6210\u529F\u96C6\u9F4A\u300C\u5747\u300D\u300C\u4E00\u300D\u300C\u633A\u300D\u300C\u958B\u300D\u300C\u6E90\u300D\u4E94\u5B57', w / 2, 272);
+  ctx.fillText('\u5747\u4E00\u633A\u958B\u6E90\uFF01', w / 2, 296);
 
   // -- Decorative divider 2 --
   var dy2 = 322;
@@ -2391,7 +2441,9 @@ function generatePlaque(canvas, name) {
   var traitLabel = dominant.label || '\u63A2\u7D22\u8005';
   ctx.fillStyle = '#a09585';
   ctx.font = '12px "Noto Sans TC", sans-serif';
-  ctx.fillText('\u63A2\u7D22 ' + visitCount + ' \u500B\u5834\u666F  |  ' + choiceCount + ' \u6B21\u9078\u64C7  |  \u63A2\u96AA\u8005\u985E\u578B\uFF1A' + traitLabel, w / 2, 346);
+  var colCount = G.collectibles.length;
+  var statsLine = '\u63A2\u7D22 ' + visitCount + ' \u500B\u5834\u666F  |  ' + choiceCount + ' \u6B21\u9078\u64C7  |  ' + colCount + ' \u4EF6\u6536\u85CF\u54C1  |  ' + traitLabel;
+  ctx.fillText(statsLine, w / 2, 346);
 
   // -- Date --
   var now = new Date();
@@ -2455,7 +2507,7 @@ function buildCompletionActions(container, canvas, name) {
         var url = URL.createObjectURL(blob);
         var a = document.createElement('a');
         a.href = url;
-        a.download = '\u5747\u4E00\u631C\u958B\u6E90-' + name + '.png';
+        a.download = '\u5747\u4E00\u633A\u958B\u6E90-' + name + '.png';
         document.body.appendChild(a);
         a.click();
         document.body.removeChild(a);
@@ -2512,7 +2564,7 @@ function showVerifyPage(code) {
     var json = decodeURIComponent(escape(atob(code)));
     var data = JSON.parse(json);
 
-    page.appendChild(el('div', 'verify-title', '\u5747\u4E00\u631C\u958B\u6E90'));
+    page.appendChild(el('div', 'verify-title', '\u5747\u4E00\u633A\u958B\u6E90'));
     page.appendChild(el('div', 'verify-name', data.n || ''));
     page.appendChild(el('div', 'verify-info', '\u65E5\u671F\uFF1A' + (data.d || '')));
     page.appendChild(el('div', 'verify-info', '\u63A2\u7D22\u5834\u666F\uFF1A' + (data.r || 0) + ' \u500B'));
@@ -2571,37 +2623,21 @@ function renderRoom() {
     container.appendChild(el('div', 'section-heading', '-- 可以做的事 --'));
 
     var roomChoices = G.choices[G.cur] || [];
-    var hasChosenThisVisit = false;
-
-    // Check if player already made a choice in this current visit
-    // (determined by whether the last log entry for this room is a choice, not an enter)
-    for (var li = G.log.length - 1; li >= 0; li--) {
-      if (G.log[li].room === G.cur && G.log[li].type === 'choice') {
-        // Check if there's a more recent enter event
-        var hasReenter = false;
-        for (var lj = li + 1; lj < G.log.length; lj++) {
-          if (G.log[lj].room === G.cur && G.log[lj].type === 'enter') {
-            hasReenter = true; break;
-          }
-        }
-        if (!hasReenter) { hasChosenThisVisit = true; }
-        break;
-      }
-    }
+    var hasAnyChoice = roomChoices.length > 0; // room already has a choice made
 
     for (var idx = 0; idx < room.interactions.length; idx++) {
       (function(interactionIdx) {
         var inter = room.interactions[interactionIdx];
         var wasChosen = roomChoices.indexOf(interactionIdx) >= 0;
+        var isLocked = !wasChosen && hasAnyChoice; // locked: not chosen but room already has a choice
         var tIdx = traitIdxForInteraction(interactionIdx);
 
         var card = el('div', 'interaction-card');
 
         if (wasChosen) {
           card.classList.add('chosen');
-          // Check if it was chosen in a previous visit (not the current one)
           card.classList.add('previous');
-        } else if (hasChosenThisVisit) {
+        } else if (isLocked) {
           card.classList.add('locked');
         }
 
@@ -2618,7 +2654,7 @@ function renderRoom() {
 
         // Badge for previously chosen
         if (wasChosen) {
-          var badge = el('span', 'interaction-badge', '先前的選擇');
+          var badge = el('span', 'interaction-badge', '\u5DF2\u9078\u64C7');
           labelRow.appendChild(badge);
         }
 
@@ -2628,8 +2664,14 @@ function renderRoom() {
         var resultEl = el('div', 'interaction-result', inter.result);
         card.appendChild(resultEl);
 
-        // Click handler for unchosen, unlocked cards
-        if (!wasChosen && !hasChosenThisVisit) {
+        // Collectible badge for chosen cards that had a collectible
+        if (wasChosen && inter.collectible) {
+          var colBadge = el('div', 'interaction-collectible-badge', '\u6536\u85CF\uFF1A' + inter.collectible);
+          card.appendChild(colBadge);
+        }
+
+        // Click handler for unchosen AND unlocked cards only
+        if (!wasChosen && !isLocked) {
           card.addEventListener('click', function () {
             // Make the choice
             if (!G.choices[G.cur]) G.choices[G.cur] = [];
@@ -2655,9 +2697,20 @@ function renderRoom() {
               time: Date.now()
             });
 
+            // Check for collectible
+            if (inter.collectible) {
+              var roomObj = G.roomMap[G.cur];
+              G.collectibles.push({
+                name: inter.collectible,
+                room: G.cur,
+                roomTitle: roomObj ? roomObj.title : G.cur
+              });
+              showCollectibleToast(inter.collectible);
+            }
+
             save();
 
-            // Re-render to show the result and lock other cards
+            // Re-render to show the result
             renderRoom();
             updateProgress();
           });
@@ -2691,7 +2744,7 @@ function renderRoom() {
         // Show target name if visited
         if (G.visited[targetFn]) {
           var sub = el('div');
-          sub.style.fontSize = '11px';
+          sub.style.fontSize = 'var(--fs-xs)';
           sub.style.color = 'var(--text-muted)';
           sub.style.marginTop = '2px';
           sub.textContent = targetName;
@@ -2892,7 +2945,7 @@ function renderStoryTab() {
   var statsDiv = el('div', 'log-summary');
   var visitCount = Object.keys(G.visited).length;
   var choiceCount = G.log.filter(function (e) { return e.type === 'choice'; }).length;
-  var statsText = '探索了 ' + visitCount + ' 個場景，做了 ' + choiceCount + ' 個選擇';
+  var statsText = '探索了 ' + visitCount + ' 個場景，做了 ' + choiceCount + ' 個選擇，收集了 ' + G.collectibles.length + ' 件收藏品';
   if (dominant.key) statsText += '，你是' + dominant.label;
   var strong = el('strong', null, statsText);
   statsDiv.appendChild(strong);
@@ -2912,10 +2965,13 @@ function renderLogTab() {
   var summary = el('div', 'log-summary');
   var s1 = el('strong', null, visitCount + ' 個場景');
   var s2 = el('strong', null, choiceCount + ' 個選擇');
+  var s3 = el('strong', null, G.collectibles.length + ' 件收藏品');
   summary.appendChild(document.createTextNode('已探索 '));
   summary.appendChild(s1);
   summary.appendChild(document.createTextNode('，做了 '));
   summary.appendChild(s2);
+  summary.appendChild(document.createTextNode('，收集了 '));
+  summary.appendChild(s3);
   container.appendChild(summary);
 
   if (G.log.length === 0) return;
@@ -3115,6 +3171,32 @@ function drawRadarChart(canvas, sz) {
 }
 
 /* ----------------------------------------------------------------
+   JOURNAL: COLLECTIBLES TAB
+   ---------------------------------------------------------------- */
+function renderCollectiblesTab() {
+  var container = $('journal-content');
+  clearEl(container);
+
+  if (G.collectibles.length === 0) {
+    container.appendChild(el('div', 'collectibles-empty', '\u9084\u6C92\u6709\u6536\u85CF\u54C1\uFF0C\u8A66\u8A66\u770B\u8DDF\u5834\u666F\u4E92\u52D5\u5427'));
+    return;
+  }
+
+  var countDiv = el('div', 'collectibles-count', '\u5DF2\u6536\u96C6 ' + G.collectibles.length + ' \u4EF6\u6536\u85CF\u54C1');
+  container.appendChild(countDiv);
+
+  var grid = el('div', 'collectibles-grid');
+  for (var i = 0; i < G.collectibles.length; i++) {
+    var item = G.collectibles[i];
+    var card = el('div', 'collectible-card');
+    card.appendChild(el('div', 'collectible-card-name', item.name));
+    card.appendChild(el('div', 'collectible-card-room', item.roomTitle));
+    grid.appendChild(card);
+  }
+  container.appendChild(grid);
+}
+
+/* ----------------------------------------------------------------
    JOURNAL TAB SWITCHING
    ---------------------------------------------------------------- */
 var currentTab = 'story';
@@ -3129,6 +3211,7 @@ function switchTab(tab) {
   if (tab === 'story') renderStoryTab();
   else if (tab === 'log') renderLogTab();
   else if (tab === 'profile') renderProfileTab();
+  else if (tab === 'collectibles') renderCollectiblesTab();
 }
 
 /* ----------------------------------------------------------------
@@ -3142,13 +3225,20 @@ function bindEvents() {
     $('game-screen').classList.add('active');
 
     // Enter first room
-    var firstRoom = G.rooms[0].filename;
-    enterRoom(firstRoom);
+    // Random starting room (different for each player)
+    var startIdx = Math.floor(Math.random() * G.rooms.length);
+    enterRoom(G.rooms[startIdx].filename);
   });
 
   // Welcome reset button
   $('btn-welcome-reset').addEventListener('click', function () {
     if (confirm('確定要重置所有進度嗎？')) { clearSave(); location.reload(); }
+  });
+
+  // Admin / cheat button
+  $('btn-admin').addEventListener('click', function () {
+    stopDust();
+    showAdminView();
   });
 
   // Continue button
@@ -3172,6 +3262,7 @@ function bindEvents() {
   $('tab-story').addEventListener('click', function () { switchTab('story'); });
   $('tab-log').addEventListener('click', function () { switchTab('log'); });
   $('tab-profile').addEventListener('click', function () { switchTab('profile'); });
+  $('tab-collectibles').addEventListener('click', function () { switchTab('collectibles'); });
 
   // Journal close
   $('journal-close').addEventListener('click', function () {
@@ -3201,12 +3292,18 @@ function bindEvents() {
     $('map-overlay').classList.remove('active');
   });
 
-  // Reset button
-  $('btn-reset').addEventListener('click', function () {
-    if (confirm('確定要重置所有探險進度嗎？')) {
-      clearSave();
-      location.reload();
-    }
+  // Home button (return to welcome screen)
+  $('btn-home').addEventListener('click', function () {
+    save();
+    $('game-screen').classList.remove('active');
+    $('welcome-screen').classList.remove('hidden');
+    // Update continue button with current progress
+    var visitCount = Object.keys(G.visited).length;
+    var continueBtn = $('btn-continue');
+    continueBtn.textContent = '\u7E7C\u7E8C\u63A2\u96AA (\u5DF2\u63A2\u7D22 ' + visitCount + ' \u500B\u5834\u666F)';
+    continueBtn.classList.remove('hidden');
+    $('btn-welcome-reset').classList.remove('hidden');
+    initDust();
   });
 }
 
@@ -3287,6 +3384,7 @@ function init() {
 
           G.traits = saved.traits || { action: 0, observer: 0, adventurer: 0, warmheart: 0 };
           if (saved.collectedChars) G.collectedChars = saved.collectedChars;
+          if (saved.collectibles) G.collectibles = saved.collectibles;
           if (saved.playerName) G.playerName = saved.playerName;
         }
 
@@ -3344,7 +3442,14 @@ function showAdminView() {
   // Build admin container
   var admin = el('div', 'admin-view');
 
-  var title = el('h1', 'admin-title', '管理者模式 -- 辦公室平面圖');
+  // Back button
+  var backBtn = el('button', 'admin-back-btn', '返回首頁');
+  backBtn.addEventListener('click', function () {
+    location.href = location.pathname;
+  });
+  admin.appendChild(backBtn);
+
+  var title = el('h1', 'admin-title', '作弊模式 -- 辦公室平面圖');
   admin.appendChild(title);
 
   var stats = el('div', 'admin-stats');
@@ -3368,7 +3473,9 @@ function showAdminView() {
     for (var c = 0; c < G.gridCols; c++) {
       var key = c + ',' + r;
       var room = posMap[key];
-      var cell = el('div', room ? 'admin-cell occupied' : 'admin-cell empty');
+      var isCurrent = room && G.cur === room.filename;
+      var cls = room ? ('admin-cell occupied' + (isCurrent ? ' current' : '')) : 'admin-cell empty';
+      var cell = el('div', cls);
 
       if (room) {
         cell.appendChild(el('div', 'admin-cell-title', room.title));
